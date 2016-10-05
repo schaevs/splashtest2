@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
@@ -26,6 +27,7 @@ class Ui_ImageLoader
 {
 public:
     QWidget *centralWidget;
+    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -37,6 +39,9 @@ public:
         ImageLoader->resize(400, 300);
         centralWidget = new QWidget(ImageLoader);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(160, 170, 59, 16));
         ImageLoader->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(ImageLoader);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -57,6 +62,7 @@ public:
     void retranslateUi(QMainWindow *ImageLoader)
     {
         ImageLoader->setWindowTitle(QApplication::translate("ImageLoader", "ImageLoader", 0));
+        label->setText(QApplication::translate("ImageLoader", "test", 0));
     } // retranslateUi
 
 };
